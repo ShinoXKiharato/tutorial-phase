@@ -22,19 +22,46 @@ else:
 '''
 print("Calculator V1.1")
 
-def add(nr1, nr2):
-    return (float(nr1) + float(nr2))
-def subtract(nr1, nr2):
-    return (float(nr1) - float(nr2))
-def divide(nr1, nr2):
-    return (float(nr1) / float(nr2))
-def multiply(nr1, nr2):
-    return (float(nr1) * float(nr2))
+def add(nr1:str, nr2:str):
+    if nr1.isdecimal() and nr2.isdecimal():
+        return (float(nr1) + float(nr2))
+    else:
+        raise ValueError("Invalid Input")
+
+def subtract(nr1:str, nr2:str):
+    if nr1.isdecimal() and nr2.isdecimal():
+        return (float(nr1) - float(nr2))
+    else:
+        raise ValueError("Invalid Input")
+    
+
+def divide(nr1:str, nr2:str):
+    if nr2 == 0:
+        raise ZeroDivisionError("Division by 0 is invalid")
+    elif nr1.isdecimal() and nr2.isdecimal():
+        return (float(nr1) * float(nr2))
+    
+def multiply(nr1:str, nr2:str):
+    if nr1.isdecimal() and nr2.isdecimal():
+        return (float(nr1) * float(nr2))
+    else:
+        raise ValueError("Invalid Input")
+
+def isOPRT(oprt):
+    '''
+    Returns true if equals to +, -, * or /
+    '''
+    return oprt == '+' or oprt =='-' or oprt =='*' or oprt == '/'
+
 
 i = None
 while i == None:
     try:
-        nr1, nr2, oprt = input("Enter first number: "),input("Enter second number: "), input("Enter operator (+,-,/,*): ")
+        nr1 = input("Enter first number: ")
+        oprt = input("Enter operator (+,-,/,*): ")
+        if not isOPRT(oprt):
+            raise ValueError()
+        nr2 = input("Enter second number: ")
         if oprt == '+':
             i = add(nr1, nr2)
         elif oprt == '-':
@@ -43,13 +70,9 @@ while i == None:
             i = divide(nr1,nr2)
         elif oprt == '*':
             i = multiply(nr1,nr2)
+        elif not isinstance(nr1, float) or not isinstance(nr2, float):
+            print("enter number")
         else:
-            print("Error occured ", end="")
-    except ZeroDivisionError as e:
-        print("Can't divide by 0")
-    except nr1 != float:
-        None
-    except nr2 != float:
-        None
+            None
     finally:
         print("= "+ str(i))
