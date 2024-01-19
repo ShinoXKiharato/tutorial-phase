@@ -49,7 +49,7 @@ print("stfu "+ str(human)) #prints stfu True
 #----------------------------------------------------------- 20M
 # String Methods
 
-#name = "tobi"
+#name = "zen"
 
 #print(len(name)) # Returns lenght of name (6)
 #print(name.find("T")) #Finds charcter within string
@@ -443,3 +443,141 @@ hello(last="Ki",middle="-",first="Yuu") '''# Gave each argument a unique identif
 '''print(round(abs(float(input("Enter a whole positive number: "))))) '''
 #does the same shit but in one line of code
 #------------------------------------------------------------ 2:10 H or 130 M NR. 25
+
+# scope = The region that a variable is recognized
+#         A variable is only available from inside the region it is created.   
+#         A global and local scoped versions of a variable can be created
+'''
+name = "bom"'''# global scope(available inside & outside functions)
+
+'''def display_name():
+    name = "Kih"''' # local scope(local variable), only available inside this function
+    #              If i were to remove this local variable, it will then go to the next best, 
+    #              in this case the global scope. 
+    #print(name)
+
+# Python follows the LEGB rule 
+'''
+     L = Local
+     E = Enclosed
+     G = Global
+     B = Build-in
+    '''
+#------------------------------------------------------------ 2:13 H or 133 M
+    
+# *args = parameter that will pack all arguments into a tuple
+#         useful so that a function can accept a varying amount of arguments.
+#         tuples are ordered and unchangeable
+'''
+def add(*stuff): # important is that * is apparent, the name does not matter.
+    sum = 0
+    stuff = list(stuff) #Cast our tuple into list because lists are changeable
+    stuff[0] = 0        # changes index 0 which is 1 to 0.
+    for i in stuff: # iterates thru all items in the tuple
+        sum += i
+    return sum
+
+print(add(1,2,3,4,1,2,5))'''
+#------------------------------------------------------------ 2:17 H or 137 M
+
+# **kwargs =    parameter that will pack all arguments into a dictionary
+#               useful so that a function can accept a varying amount of keyword arguments
+#               kwargs = keyword arguments
+'''
+def hello(first, last):
+    print("Hello"+ first + " " + last)
+
+hello(first="boy", middle="dude", last"wow") '''
+# This will run into an error due to being an unexpected keyword argument "Middle"
+# ---
+'''
+def hello(**kwargs):''' #Again, doesn't matter what the name is, important is the **
+    #print("Hello "+ kwargs['first'] + " " + kwargs['last'])
+''' print("Hello", end=" ")
+    for key,value in kwargs.items(): #Iterates once thru each key value in the dictionary
+        print(value, end=" ")'''
+
+#hello(title="mr",first="boy", middle="dude", last="wow") 
+#------------------------------------------------------------ 2:21 H or 141 M
+
+# str.format() = optional method that gives users
+#                more control when displaying output
+'''
+animal = "cow"
+item = "moon"
+'''
+#print("The "+animal+" jumped over the "+item)
+'''
+print("The {} jumped over the {}".format(animal,"moon")) 
+print("The {1} jumped over the {0}".format(animal,"moon")) #positional argument (reverts outcome)'''
+#print("The {animal} jumped over the {animal}".format(animal="cow",item="moon")) #keyword argument
+# {} function as a placeholder for a variable or a value. Works in order
+'''
+More elegant way to write it.
+
+text = "The {} jumped over the {}"
+print(text.format(animal,item))'''
+
+#add padding to value
+'''name = "Yuon"
+print("hello, my name is {}".format(name))
+print("hello, my name is {:10}. Nice to meet you".format(name))'''
+#alinge
+'''print("hello, my name is {:<10}. Nice to meet you".format(name)) #left align
+print("hello, my name is {:>10}. Nice to meet you".format(name)) #right align
+print("hello, my name is {:^10}. Nice to meet you".format(name)) #center
+'''
+#add a positional argument with {0:<10} - 0 being the index
+
+# Format numbers
+
+#number = 3.14159
+#number = 1000
+
+#print("The number pi is {:.2f}".format(number)) # f is for floating point numbers. 
+#                                                 Displas only first 2 digits. also rounds number
+#print("The number pi is {:,}".format(number)) adds a comma to all 1000th places
+#print("The number pi is {:b}".format(number)) displays number in binary
+#print("The number pi is {:o}".format(number)) displays number in octal
+#print("The number pi is {:x}".format(number)) displays hexadecimel
+#print("The number pi is {:E}".format(number)) displays number in scientific notation 
+#------------------------------------------------------------ 2:33 H or 153 M
+
+# How to generate random numbers + useful pseudo random numbers
+'''
+import random
+
+x = random.randint(1,6)
+y = random.random()
+
+mylist = ['rock','paper','scissors']
+z = random.choice(mylist) when printed, randomly selects one
+
+cards = [1,2,3,4,5,6,7,8,9,"J","Q","K"]
+
+random.shuffle(cards) shuffles the list
+print(z)
+print(y) '''
+#------------------------------------------------------------ 2:36 H or 156 M
+
+# exception =   events detected during execution that interrupt the flow of the program
+'''
+try:
+    numerator = int(input("Enter a number to divide: "))
+    denominator = int(input("Enter a number to divide by: "))
+    result = numerator / denominator
+except ZeroDivisionError as e:
+    print("You can't divide by zero!")
+    print(e)
+except ValueError as e:
+    print("Enter only numbers")
+    print(e)
+#except Exception as e:
+    #print("something went wrong :c")
+    #print(e)
+else:
+    print(result)
+finally:
+    print("This will always execute")
+'''
+#------------------------------------------------------------ 2:43 H or 163 M
