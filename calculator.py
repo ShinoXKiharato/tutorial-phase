@@ -45,10 +45,11 @@ while i == None:
             i = multiply(nr1,nr2)
         else:
             print("Error occured ", end="")
-        print("= "+ str(i))
     except ZeroDivisionError as e:
         print("Can't divide by 0")
     except nr1 != float:
-        print("Error occured ", end="")
+        None
     except nr2 != float:
-        print("Error occured ", end="")
+        None
+    finally:
+        print("= "+ str(i))
