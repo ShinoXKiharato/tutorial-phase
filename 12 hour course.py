@@ -581,3 +581,83 @@ finally:
     print("This will always execute")
 '''
 #------------------------------------------------------------ 2:43 H or 163 M
+'''
+import os
+
+path = "D:\\VRC SS\\Favorites\\VRChat_2024-01-17_23-38-46.919_7680x4320.png"
+
+if os.path.exists(path): #checks if path exists calling variable path
+    print("It exists")
+    if os.path.isfile(path): # checks if it's a file
+        print("That is a file")
+    elif os.path.isdir(path): # checks if it's a directory(folder)
+        print("That is a directory!")
+else:
+    print("This location, doesn't exist")
+'''
+#------------------------------------------------------------ 2:47 H or 167 M
+
+# How to open and read a file
+'''
+try:
+    with open('C:\\Users\\tobia\\Desktop\\Textdokument (neu) (2).txt') as file:
+        print(file.read())
+
+    print(file.closed)
+except FileNotFoundError:
+    print("That file was not found")'''
+#------------------------------------------------------------ 2:51 H or 171 M
+
+#Write a file
+'''
+text = "Have a nice day!\n cya!"
+
+with open('C:\\Users\\tobia\\Desktop\\Textdokument (neu) (2).txt','a') as file:
+    file.write(text) '''
+
+# use 'a' to append a file. use 'r' to read a file. use 'w' to write a file. ^
+#------------------------------------------------------------ 2:54 H or 174 M
+
+# copyfile() =  copies contents of a file
+# copy() =      copyfile() + permission mode + destination can be a directory
+# copy2() =     copy() + copies metadata (file's creation and modification times)
+'''
+import shutil
+
+shutil.copyfile('C:\\Users\\tobia\\Desktop\\Textdokument (neu) (2).txt', 'C:\\Users\\tobia\\Desktop\\small.txt')''' #src, dst <<<- copies file onto desktop +renames it.
+#------------------------------------------------------------ 2:57 H or 177 M
+
+# Move files using python
+'''
+import os
+
+source = "C:\\Users\\tobia\\Desktop\\boop\\boop1\\folder"
+destination = "C:\\Users\\tobia\\Desktop\\code\\Tutorial Area\\folder"
+# remember to use \\ and write the name of the source file in the destination line aswell.
+try:
+    if os.path.exists(destination): #check if that file already exists
+        print("There is already a file there")
+    else:
+        os.replace(source, destination) #replaces file from source to destination / moves it there
+        print(source+" was moved")
+except FileNotFoundError:
+    print(source+"was not found")'''
+#------------------------------------------------------------ 3:01 H or 181 M
+
+# Delete files using python
+import os
+import shutil
+# 2 versions
+#path = "test.txt"
+path = "empty_folder"
+
+try:
+#    os.remove(path) #removes file called test.txt
+    os.remove("C:\\Users\\tobia\\Desktop\\boop\\boop1\\test.txt") #removes file called test.txt
+    os.rmdir(path) # rmdir short for remove directory(folder), this does not delete folders that are not empty
+except FileNotFoundError:
+    print("That file was not found")
+except PermissionError:
+    print("No permission")
+else:
+    print(path+"was deleted")
