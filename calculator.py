@@ -40,6 +40,8 @@ def divide(nr1:str, nr2:str):
         raise ZeroDivisionError("Division by 0 is invalid")
     elif nr1.isdecimal() and nr2.isdecimal():
         return (float(nr1) * float(nr2))
+    else:
+        raise ValueError("Invalid Input")
     
 def multiply(nr1:str, nr2:str):
     if nr1.isdecimal() and nr2.isdecimal():
