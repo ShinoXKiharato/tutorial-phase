@@ -38,9 +38,13 @@ while play_again():
 
 print("bye bye")
 ```
-The function `new_game()` is being called and if the game is finished it will ask the user if they want to play again. If not, proceed and end with _"bye bye"._
+The function `new_game()` is being called and if the game is finished it will ask the user if they want to play again. 
 
-### Functions (new_game())
+This is simply done with a `while` loop where i call the function `play_again` that will return a boolean value(`True/False`), in the while loop i call `new_game` again to start the code *again*.
+
+If not, proceed and end with _"bye bye"._
+
+### Functions (new_game)
 ---
 
 I first defined the function `new_game()`.
@@ -162,4 +166,48 @@ It else will return 0 and print the message "Wrong!"
 #### Functions (display_score)
 ---
 
+```python
+def display_score(correct_guesses, guesses):
+    print("-----------------")
+    print("RESULTS")
+    print("-----------------")
 
+    print("Answers: ", end="")
+    for i in questions:
+        print(questions.get(i), end=" ")
+    print()
+
+    print("Guesses: ", end="")
+    for i in guesses:
+        print(i, end=" ")
+    print()
+```
+
+Here i define `display_score` and recall the 2 arguments `correct_guesses` and `guesses` into my parameter.
+
+
+Furthermore, i state that i want to print the answers and the user-guesses seperately. I do this by printing "Answers: " and to make sure i don't end on a new line, i write `(,end= "")` at the end of the print statement.
+
+I then use a `for` loop to iterate thru all answer `key`'s and all user-`guesses`.
+
+I do this by using `i` in `questions`/`guesses` to iterate thru them and print `i`. Though i have to tell `i` with `questions.get(i)` to return me the value of the item with the specified key, which in this case is all the `key`'s in `questions` / all the answers.
+
+#### Functions (play_again)
+---
+
+```python
+def play_again():
+    
+    response = input("Do you want to play again? (y/n): ").upper()
+    if response == "Y":
+        return True
+    else:
+        return False
+```
+With the function `play_again()`, i ask the user if they would like to run the quiz again.
+
+This is done by creating a user_input called `response`, this asks the user specificly if they would like to play again. I add `.upper()` at the end of the `input` to make sure the answer will be set in upper-case letters.
+
+I then write an `if` statement to check `if` the `response` is equal to "Y". If so, return `True`, else return `False`.
+
+---
