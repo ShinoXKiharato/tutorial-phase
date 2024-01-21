@@ -645,19 +645,28 @@ except FileNotFoundError:
 #------------------------------------------------------------ 3:01 H or 181 M
 
 # Delete files using python
+'''
 import os
-import shutil
+import shutil''' #to delete folder with content add shutil
 # 2 versions
 #path = "test.txt"
-path = "empty_folder"
-
+#path = "empty_folder"
+'''
 try:
 #    os.remove(path) #removes file called test.txt
     os.remove("C:\\Users\\tobia\\Desktop\\boop\\boop1\\test.txt") #removes file called test.txt
     os.rmdir(path) # rmdir short for remove directory(folder), this does not delete folders that are not empty
+
+    shutil.rmtree(path) #this deletes a directory containing files (dangerous)
 except FileNotFoundError:
     print("That file was not found")
 except PermissionError:
     print("No permission")
+except OSError:
+    print("You cannot delete that using that function(rmdir)")
 else:
-    print(path+"was deleted")
+    print(path+"was deleted")'''
+#------------------------------------------------------------ 3:06 H or 186 M
+
+# Module = a file containing python code. May contain functions, classes, etc.
+# Used with modular programming, which is to seperate a program into parts
