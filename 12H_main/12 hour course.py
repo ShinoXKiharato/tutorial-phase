@@ -682,7 +682,9 @@ msg.bye()
 help("modules") '''
 # displays all modules.
 #------------------------------------------------------------ 3:10 H or 190 M
+
 # Rock, paper, scissors
+'''
 import random
 
 while True:
@@ -730,4 +732,81 @@ while True:
     if play_again != 'y':
         break
 print("Bye!")
+'''
+#------------------------------------------------------------ 3:18 H or 198 M
+
+# Quiz game
+'''
+def new_game():
     
+    guesses = []
+    correct_guesses = 0
+    question_num = 1
+
+    for key in questions:
+        print("---------------------")
+        print(key)
+        for i in options[question_num-1]:
+            print(i)
+
+        guess = input("Enter (A,B,C or D): ")
+        guess = guess.upper()
+        guesses.append(guess)
+
+        correct_guesses += check_answer(questions.get(key),guess)
+        question_num += 1
+    
+    display_score(correct_guesses, guesses)
+def check_answer(answer,guess):
+    
+    if answer == guess:
+        print("CORRECT!")
+        return 1
+    else:
+        print("Wrong!")
+        return 0
+
+def display_score(correct_guesses, guesses):
+    print("-----------------")
+    print("RESULTS")
+    print("-----------------")
+
+    print("Answers: ", end="")
+    for i in questions:
+        print(questions.get(i), end=" ")
+    print()
+
+    print("Guesses: ", end="")
+    for i in guesses:
+        print(i, end=" ")
+    print()
+
+    score = int((correct_guesses/len(questions))*100)
+    print("Your score is: "+str(score)+"%")
+def play_again():
+    
+    response = input("Do you want to play again? (y/n): ").upper()
+    if response == "Y":
+        return True
+    else:
+        return False
+
+questions = {
+    "Who created Python?: ": "B",
+    "What year was Python created?: ": "C",
+    "Python is tributed to which comedy group?: ": "B",
+    "Is the Earth round?: ": "A"
+}
+
+options = [["A. Elon Musk", "B. Guido van Rossum", "C. Bill Gates", "D. Mark Zuckerburg"], # 0
+          ["A. 1964", "B. 2004", "C. 1991", "D. 2011"], # 1
+          ["A. Lonely Island", "B. Monty Python", "C. PyZue", "D. Queton"], # 2
+          ["A. True", "B. False", "C. Sometimes", "D. Earth isn't a planet"]] # 3
+
+new_game()
+while play_again():
+    new_game()
+
+print("bye bye")
+'''
+#------------------------------------------------------------ 3:35 H or 215 M
