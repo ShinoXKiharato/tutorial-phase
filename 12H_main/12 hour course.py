@@ -670,3 +670,64 @@ else:
 
 # Module = a file containing python code. May contain functions, classes, etc.
 # Used with modular programming, which is to seperate a program into parts
+
+#import messages as msg 
+# with > as msg | I'm giving the module messages a nickname
+'''from messages import hello,bye''' # i can use import * to import all
+# With this ^, i no longer need to call the module and just can use "hello()/bye()".
+'''
+msg.hello()
+msg.bye()
+
+help("modules") '''
+# displays all modules.
+#------------------------------------------------------------ 3:10 H or 190 M
+# Rock, paper, scissors
+import random
+
+while True:
+    choices = ["rock", "paper", "scissors"]
+    player = None
+
+    computer = random.choice(choices)
+    while player not in choices:
+        player = input("rock, paper, or scissors?: ").lower()
+
+    if player == computer:
+        print("computer: ",computer)
+        print("player: ",player)
+        print("Tie!")
+    elif player == "rock":
+        if computer == "paper":
+            print("computer: ",computer)
+            print("player: ",player)
+            print("You lose!")
+        if computer == "scissors":
+            print("computer: ",computer)
+            print("player: ",player)
+            print("You win!")
+    elif player == "scissors":
+        if computer == "rock":
+            print("computer: ",computer)
+            print("player: ",player)
+            print("You lose!")
+        if computer == "paper":
+            print("computer: ",computer)
+            print("player: ",player)
+            print("You win!")
+    elif player == "paper":
+        if computer == "scissors":
+            print("computer: ",computer)
+            print("player: ",player)
+            print("You lose!")
+        if computer == "rock":
+            print("computer: ",computer)
+            print("player: ",player)
+            print("You win!")
+    
+    play_again = input("Play again? (y/n)").lower()
+
+    if play_again != 'y':
+        break
+print("Bye!")
+    
