@@ -810,3 +810,32 @@ while play_again():
 print("bye bye")
 '''
 #------------------------------------------------------------ 3:35 H or 215 M
+
+# Object Oriented Programming (OOP)
+'''
+class Car: 
+
+    def __init__(self,make,model,year,color): # to call this method, i don't need to use an argument for (self).
+        self.make = make
+        self.model = model
+        self.year = year
+        self.color = color
+
+    def drive(self):
+        print("This "+self.model+" is driving")
+    
+    def stop(self):
+        print("This "+self.model+" is now stopped")
+
+car_1 = Car("Chevy","Corvette",2021,"blue") <-- example.
+car_2 = Car("Ford", "Mustag",2022,"red")
+
+print(car_1.make)
+print(car_1.model)
+print(car_1.color)
+print(car_1.year)
+
+car_2.drive()
+car_1.stop()'''
+# "boop\images\explanation.png"
+#------------------------------------------------------------ 3:45 H or 225 M
