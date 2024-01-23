@@ -839,3 +839,346 @@ car_2.drive()
 car_1.stop()'''
 # "boop\images\explanation.png"
 #------------------------------------------------------------ 3:45 H or 225 M
+
+# Class Variables
+
+# Class variable is defined inside the class but outside of the constructor (def __init__)
+'''
+class Car: 
+
+    wheels = 4 # class variable
+
+    def __init__(self,make,model,year,color): 
+        self.make = make    # instance variable
+        self.model = model  # instance variable
+        self.year = year    # instance variable
+        self.color = color  # instance variable
+
+Car.wheels = 2 # affects all instances of this class (Car)
+
+car_1 = Car("Chevy","Corvette",2021,"blue") #<-- example.
+car_2 = Car("Ford", "Mustag",2022,"red")
+
+car_1.wheels = 2
+print(car_2.wheels)
+print(car_1.wheels)'''
+
+# print(Car.wheels) #calls class and displays variable wheels
+
+#------------------------------------------------------------ 3:49 H or 229 M
+
+# inheritance
+'''
+class Animal: #parent class
+
+    alive = True
+
+    def eat(self):
+        print("This animal is eating")
+    
+    def sleep(self):
+        print("This animal is sleeping")
+
+class Rabbit(Animal): '''#child-class by adding parent class in ()
+    
+'''
+    def run(self):
+        print("This rabbit can run")
+
+class Fish(Animal):
+
+    def swim(self):
+        print("This fish is swimming")
+
+class Hawk(Animal):
+
+    def fly(self):
+        print("This hawk can fly")
+
+rabbit = Rabbit()
+fish = Fish()
+hawk = Hawk()'''
+
+# These child-classes inherit all of the parent class attributes, methods etc.
+# Children classes can also implement their own unique attribbutes and methods.
+
+#print(rabbit.alive) 
+#fish.eat()
+#hawk.sleep()
+
+#------------------------------------------------------------ 3:55 H or 235 M
+
+# Multi-level inheritance = when a derived (child) class inherits another derived (child) class
+
+# Works like a hireachy, for example dog is the child, animal is the parent and Organism is the grand-parent
+# / Family Tree
+'''
+class Organism:
+
+    alive = True
+
+class Animal(Organism):
+
+    def eat(self):
+        print("This animal is eating")
+
+class Dog(Animal):
+
+    def bark(self):
+        print("This dog is barking")
+
+dog = Dog()
+print(dog.alive)
+dog.eat()
+dog.bark()
+'''
+#------------------------------------------------------------ 3:59 H or 239 M
+
+# Multiple inheritance = when a child is derived from more than one parent class.
+'''
+class Prey: #parent
+
+    def flee(self):
+        print("This animal flees")
+
+class Predetor: #parent
+
+    def hunt(self):
+        print("This animal is hunting")
+'''
+#---------
+'''
+class Rabbit(Prey): #child
+    pass
+
+class Hawk(Predetor): #child
+    pass
+
+class Fish(Prey, Predetor): #child but derives from more than one parent class
+    pass
+
+rabbit = Rabbit()
+hawk = Hawk()
+fish = Fish()
+
+rabbit.flee()
+hawk.hunt()
+fish.hunt()
+fish.flee()
+'''
+#------------------------------------------------------------ 4:02 H or 242 M 
+
+#Method overriding
+'''
+class Animal:
+
+    def eat(self): # one method called eat.
+        print("This animal is eating")
+
+class Rabbit(Animal):
+    
+    def eat(self):
+        print("The rabbit is eating you")
+
+rabbit = Rabbit()
+rabbit.eat()
+'''
+# A class will use the method more closely associated with itself before using it's parents inherited method.
+#------------------------------------------------------------ 4:04 H or 244 M 
+
+# method chaining = calling multiple methods sequentially
+#                   each call performs an action on the same object and returns self
+'''
+class Car:
+
+    def turn_on(self):
+        print("engine started")
+        return self
+    
+    def drive(self):
+        print("U drive")
+        return self
+
+    def brake(self):
+        print("u break")
+        return self
+    
+    def turn_off(self):
+        print("Engine off")
+        return self
+
+car = Car()
+'''
+# instead of writing car.turn_on and car.drive() seperately, we can use method chaining:
+
+#car.turn_on().drive()  <- only works because the method turn_on etc returns self/itself.
+'''
+car.turn_on()\
+    .drive()\
+    .brake()\
+    .turn_off()'''
+# ^ easier readability,  \ <- line continuation character.
+'''car.turn_on().drive().brake().turn_off()'''
+# same thing ^^ as the above
+
+#------------------------------------------------------------ 4:08 H or 248 M 
+
+# super() = Function used to give access to the methods of a parent class.
+#           It returns a temporary object of a parent class when used.
+'''
+class Rectangle:
+
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+class Square(Rectangle):
+
+    def __init__(self,length,width):
+        super().__init__(length,width)
+
+    def area(self):
+        return self.length*self.width
+
+class Cube(Rectangle):
+    
+    def __init__(self, length, width, height):
+        super().__init__(length,width)
+        self.height = height
+
+    def volume(self):
+        return self.length*self.width*self.height
+    
+square = Square(3, 3)
+cube = Cube(3, 3, 4)
+
+print(square.area())
+print(cube.volume())
+'''
+# The super() function is used to give access to methods and properties of a parent or sibling class.
+
+# The super() function returns an object that represents the parent class.
+#------------------------------------------------------------ 4:12 H or 252 M 
+#Abstract Classes
+
+# Prevents a user from creating an object of that class
+# + compels a user to override abstract methods in a child class
+    # think of it like a template/ghost class.
+# abstract class = a class which contains one or more abstract methods.
+# abstract method = a method that has a decleration ubt does not have an implementation
+
+# from abc import ABC, abstractmethod
+# abc = abstract base class.
+'''
+class Vehicle(ABC):
+    @abstractmethod
+    def go(self):
+        pass
+    @abstractmethod
+    def stop(self):
+        pass'''
+# Abstract classes need at least one method to be abstract. 
+'''
+class Car(Vehicle):
+
+    def go(self):
+        print("You drive the car")
+
+    def stop(self):
+        print("This car is stopped")
+
+class Motorcycle(Vehicle):
+
+    def go(self):
+        print("You ride the motorcycle")
+
+    def stop(self):
+        print("This bike is stopped")'''
+# vehicle = Vehicle() -> F5 = TypeError: Can't instantiate abstract class Vehicle without an implementation for abstract method 'go'
+#                             Meaning, the class Vehicle is now an abstract / ghost class.
+'''
+car = Car()
+bike = Motorcycle()
+'''
+# vehicle.go()
+'''
+car.go()
+bike.go()
+bike.stop()
+'''
+# I can't initiate with the child class from a parent class if i don't implement all abstract methods first.
+# So i have to implement the abstract method and give it a unique implementation. 
+
+# With abstract classes, i can make sure to give a parent class abstract methods while making sure 
+# the abstract class can't be used to create objects + compels me to override thses abstract methods.
+
+#------------------------------------------------------------ 4:19 H or 259 M 
+
+# How to pass Objects as arguments.
+'''
+class Car:
+
+    color = None
+
+class Motorcycle:
+
+    color = None
+
+def change_color(vehicle,color):
+
+    vehicle.color = color
+
+car_1 = Car()
+car_2 = Car()
+car_3 = Car()
+
+bike_1 = Motorcycle()
+
+change_color(car_1, "red") # object, argument
+change_color(car_2, "white")
+change_color(car_3, "blue")
+change_color(bike_1, "black")
+
+print(car_1.color)
+print(car_2.color)
+print(car_3.color)
+print(bike_1.color)'''
+#------------------------------------------------------------ 4:23 H or 263 M NR 50. HALFWAY
+
+# Duck Typing = concept where the class of an object is less important than the methods/attributes that, that class might have.
+#               class type is not checked if minimum methods/attributes are present
+#               "If it walks like a duck, and it quacks like a duck, then it must be a duck"
+'''
+class Duck:
+
+    def walk(self):
+        print("This duck is walking")
+    
+    def talk(self):
+        print("This duck is talking")
+
+class Chicken:
+
+    def walk(self):
+        print("This chicken is walking")
+    
+    def talk(self):
+        print("This chicken is talking")
+
+class Person():
+
+    def catch(self,duck):
+        duck.walk()
+        duck.talk()
+
+        print("You caught the critter")
+#object -> class
+duck = Duck()
+chicken = Chicken()
+person = Person()
+
+person.catch(chicken)
+'''
+# Since chicken can .walk and .talk like a duck, it can be a substitute for ducks when we pass in our duck obj.
+
+#------------------------------------------------------------ 4:27 H or 267 M 
