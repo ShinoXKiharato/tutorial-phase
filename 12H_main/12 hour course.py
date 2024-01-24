@@ -1182,3 +1182,153 @@ person.catch(chicken)
 # Since chicken can .walk and .talk like a duck, it can be a substitute for ducks when we pass in our duck obj.
 
 #------------------------------------------------------------ 4:27 H or 267 M 
+
+# walrus operator :=
+
+# assignment expression aka walrus operator
+# assings value to variables as part of a large expression
+
+#happy = True
+#print(happy)
+# = 
+#print(happy := True)
+'''
+foods = list()
+while True:
+    food = input("What food u like? ")
+    if food == "quit":
+        break
+    foods.append(food)
+
+# Same thing but with the := operator.
+
+foods = list()
+while food := input("What food u like? ") != "quit":
+    foods.append(food)
+'''
+#------------------------------------------------------------ 4:31 H or 271 M  
+
+# Functions to Variables
+'''
+def hello():
+    print("Hello")
+
+print(hello)
+hi = hello '''
+# ^^ Here i create a variable called hi and assign hello to it, this will assign hello's memory address to hi.
+# if i then use hi and set () to it, it will treat is as hello() and call it's method.
+'''
+hi()
+hello()
+
+say = print
+say("Woah! I can't believe this works! :O ")
+'''
+# this is the same as above, say is the variable assigned to the function print. Now say works just like print would.
+
+#------------------------------------------------------------ 4:35 H or 275 M  
+
+# Higher Order Functions = a function that either:
+#                          1. accepts a function as an argument
+#                               or
+#                          2. returns a function
+#                          (In python, functions are also treated as objects)
+
+# 1.-
+'''
+def loud(text):
+    return text.upper()
+
+def quiet(text):
+    return text.lower()
+
+def hello(func):
+    text = func("Hello")
+    print(text)
+
+hello(loud) 
+hello(quiet)'''
+# Here we are accepting either loud, or quiet as arguments in ()
+
+# 2.-
+'''
+def divisor(x):
+    def dividend(y):
+        return y / x
+    return dividend
+
+divide = divisor(2)
+print(divide(10))
+'''
+# x = 2, skipping the function divident at first and return dividend
+# because we return divident, this will be assigned to the variable divide in " divide = divisor(2)"
+
+# since divide has now the same memory adress as dividend, we can use print(divide(10)) to assign 10 to the value y and return y / x.
+
+#------------------------------------------------------------ 4:41 H or 281 M  
+
+# lambda function = function written in  line using lambda keyword
+#                   accepts any number of arguments, but only has one expression.
+#                   (think of it as shortcut)
+#                   (useful if needed for a short period of time, thow-away)
+#
+# lambda parameters:expression
+'''
+def double(x):
+    return x * 2
+
+print(double(5))
+'''
+#^^ This now in lambda :
+'''
+double = lambda x:x * 2
+multiply = lambda x, y: x * y
+add = lambda x,y,z: x+y+z
+print(add(5,5,10)) # returns 20
+print(multiply(5,6)) # returns 30
+print(double(5)) # returns 10
+
+full_name = lambda first_name, last_name: first_name +" "+last_name
+print(full_name("Yu", "on"))
+
+age_check = lambda age:True if age >= 18 else False
+print(age_check(10)) #returns false
+print(age_check(18)) #returns true
+'''
+#------------------------------------------------------------ 4:45 H or 285 M  
+
+# sort () method =  used with lists
+#                   and only lists, meaning students.sort() while student has a list []
+
+# sort () function = used with other iterables also including lists
+
+#students = ["bob", "jean", "pat", "miller"]
+#students = ("bob", "jean", "pat", "miller")
+
+#students.sort() # alphabetical order
+#students.sort(reverse=True) # reversed alphabetical order
+#sorted_students = sorted(students, reverse=True) # sort a list of tuples
+#for i in sorted_students:
+    #print(i)
+# lvl 2
+'''
+students = [("Squidward", "F", 60),
+            ("Bob", "A", 33),
+            ("Jean", "D", 36),
+            ("Pat", "B", 20),
+            ("Alex", "C", 78)]
+
+grade = lambda grades:grades[1]
+age = lambda ages:ages[2]
+
+students.sort() # this sorts by the first column in alphabetical order
+students.sort(key=grade, reverse=True) # Sorts by the second key in reversed alphabetical order
+students.sort(key=age, reverse=True) #sorts third key, reversed order. Highest number, lowest number
+
+for i in students:
+    print(i)
+'''
+
+# If the list would be a tuple of a tuple, meaning (()) then i'd have to use
+# sorted_students = sorted(students, key=age) to sort the tuple of tuple / list of list in age
+#------------------------------------------------------------ 4:53 H or 293 M  
