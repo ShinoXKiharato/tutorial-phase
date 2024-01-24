@@ -547,8 +547,8 @@ print("hello, my name is {:^10}. Nice to meet you".format(name)) #center
 '''
 import random
 
-x = random.randint(1,6)
-y = random.random()
+x = random.randint(1,6) ## random integer between 1 and 6
+y = random.random() # gives random floating point number between 0 and 1
 
 mylist = ['rock','paper','scissors']
 z = random.choice(mylist) when printed, randomly selects one
