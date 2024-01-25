@@ -6,6 +6,12 @@
 
 >>>print (random_char(5))
 >>>fxkea
+
+or
+
+numpy.random.choice to give a unique set if you add replace=False, 
+
+like so: numpy.random.choice(string.ascii_lowercase, size=5, replace=False)
 '''
 
 import random
