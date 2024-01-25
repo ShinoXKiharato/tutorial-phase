@@ -65,7 +65,7 @@ print("stfu "+ str(human)) #prints stfu True
 #----------------------------------------------------------- 25M
 
 # Type Cast - Convert the data type of value to another data type.
-'''
+''' 
 x = 1 #int
 y = 2.0 #float
 z = "3" #str
