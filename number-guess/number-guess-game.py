@@ -29,6 +29,7 @@ while x == True:
             print("Previous Amount: "+str(pre_tries))
             print("Highest Amount: "+str(highest_tries))
             pre_tries = tries
+#add variable Set true, change while v=true 
             while True:
                 play_again = input("Would you like to play again? (y/n): ")
                 if play_again.lower == "n":
