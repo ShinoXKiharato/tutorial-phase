@@ -103,4 +103,6 @@ while x == True:
 ]
 
 ---
-<img src="https://media.discordapp.net/stickers/1014098155702325288.webp?size=240" width="300" height="300">
+<div align="center">
+    <img src="https://media.discordapp.net/stickers/1014098155702325288.webp?size=240" width="300" height="300">
+</div>
