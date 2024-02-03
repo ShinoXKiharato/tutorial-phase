@@ -17,20 +17,27 @@ like so: numpy.random.choice(string.ascii_lowercase, size=5, replace=False)
 # imp note lstrip() to remove smth from string
 # imp note replace() to replace a substring
 # imp note swapcase() swaps all case letters big to low, low to big
-# imp lookup .sample()
+# imp lookup .sample() ¦ isalpnum()
 import random
 import string
 
 string.ascii_letters
 
 class user_pref:
-      upref = str(input("Enter a password you like to strenghen: ")).lower().isalnum()
+      upref = str(input("Enter a password you like to strenghen: ")).lower()
+# count lenght of user string and use lenght to create a random number int from 1 to x(how long the userstring is)
+# manipulate string couple times by using random number inbetween user-string to add characters and therefore create a "better password"
+      
+# string slice into different parts, modify and add back together??
 class strmnpl(user_pref): #string manipulation
-    uprefrnd = random.choice(string.ascii_letters)
-    print(uprefrnd)
-    for i in range(1, 4):
-        x = random.randint(1,15)
+    #uprefrnd = random.choice(string.ascii_letters)
+    #print(uprefrnd)
+    for i in range(1, 10):
+        x = random.choice(string.ascii_letters)
         y = random.randint(1,15)
-        print(x,y)
+        print(x, end="")
+        x += x
+    print(x + user_pref.upref)
+
 def again(): # play again
     pass
