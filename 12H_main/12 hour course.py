@@ -1333,3 +1333,130 @@ for i in students:
 # sorted_students = sorted(students, key=age) to sort the tuple of tuple / list of list in age
 #------------------------------------------------------------ 4:53 H or 293 M  
 
+# map() =   applies a function to each item in an iterable (list,tuple,etc.)
+#
+# map(function,iterable)
+'''
+store = [("shirt",20.00),
+         ("pants",25.00),
+         ("jacket",50.00),
+         ("socks",10.00)]
+'''
+#convert euros to usd with .82
+'''
+to_euros = lambda data: (data[0],data[1]*0.82)
+to_dollars = lambda data: (data[0],data[1]/0.82)
+
+store_euros = list(map(to_euros, store))
+store_dollars = list(map(to_dollars, store))
+
+for i in store_euros:
+    print(i)
+for i in store_dollars:
+    print(i)
+    '''
+#------------------------------------------------------------ 4:57 H or 297 M
+
+# filter() =    creates a collection of elements ffrom an iterable for which a function returns true
+#
+# filter(function, iterable)
+'''
+friends = [("Rachel",19),
+           ("Monica",18),
+           ("Phoebe",17),
+           ("Joey",16),
+           ("Kevin",21)]
+
+age = lambda data:data[1] >= 18
+
+d_bud = list(filter(age, friends))
+for i in d_bud:
+    print(i)'''
+#like a search engine where we search the results for everyone 18 or above.
+#------------------------------------------------------------ 5:00 H or 300 M NR,58
+
+# reduce() =    apply a function to an iterable and reduce it to a single cumulative value.
+#               performs function on first two elements and repeats process until 1 value remains
+#
+# reduce(function, iterable)
+'''
+import functools
+letters = ["H", "E", "L", "L", "O"]
+word = functools.reduce(lambda x,y: x+y,letters)'''
+# this values H and E as x and y. combines them and then its "HE" "L" and now HE is x and L is y, and so on.
+
+#print(word)
+'''
+import functools
+factorial = [5,4,3,2,1]
+result = functools.reduce(lambda x, y: x * y, factorial)'''
+# 5 * 4 = 20 * 3 = 60 * 2 = 120 * 1 = 120__
+#print(result)
+#------------------------------------------------------------ 5:05 H or 305 M
+
+# list comprehension =  a way to create a new list with less syntax
+#                       can mimic certain lambda functions, easier to read
+#                       list = [expression for item in iterable]
+#                       list = [expression for item in iterable if conditional]
+#                       list = [expression if/else for item in iterable]
+'''
+squares = []                  # creates empty list
+for i in range(1,11):       # create a for loop
+    squares.append(i * i)   # define what each loop iteration should do
+print(squares)'''
+#^^^^^^^same as above
+'''
+squares = [i * i for i in range(1,11)]
+print(squares)'''
+#list = [expression for item in iterable]
+
+# now to mimic certain lambda functions :
+'''
+students = [100,90,80,70,60,50,40,30,0]                         #student exam
+'''
+#passed_students = list(filter(lambda x: x >= 50, students))     #all 50 or above passed exam.
+'''
+passed_students = [i for i in students if i >= 50] #list = [expression for item in iterable if conditional]
+
+passed_students = [i if i >= 50 else "Failed" for i in students] # list = [expression if/else for item in iterable] + replaces everyone below 50 with "Failed"
+print(passed_students)'''
+#------------------------------------------------------------ 5:11 H or 311 M NR. 60
+
+# dictionary comprehension = create dictionaries using an expression
+#                            can replace for loops and certain lambda functions
+#
+# dictionary = {key: expression for (key,value in iterable)}
+'''
+cities_in_F = {'New York':32,'Boston':75,'Los Angeles':100,'Chicago':50}
+cities_in_C = {key: round((value-32)*(5/9)) for (key,value) in cities_in_F.items()}
+print(cities_in_C)'''
+#----------------
+# dictionary = {key: expression for (key,value) in iterable if conditional)}
+'''
+weather = {'New York':"snowing",'Boston':"sunny",'Los Angeles':"sunny",'Chicago':"cloudy"}
+sunny_weather = {key: value for (key,value) in weather.items() if value == "sunny"}
+print(sunny_weather)'''
+#----------------
+# dictionary = {key: (if/else) for (key,value) in iterable)}
+'''
+cities = {'New York':32,'Boston':75,'Los Angeles':100,'Chicago':50}
+desc_cities = {key: ("Warm" if value >= 40 else "Cold") for (key,value) in cities.items()} # replaces values with warm or cold.
+print(desc_cities)'''
+#----------------
+# dictionary = {key: function(value) for (key,value) in iterable)}
+'''
+def check_temp(value):
+    if value >= 70:
+        return "Hot"
+    elif 69 >= value >=40:
+        return "Warm"
+    else:
+        return "Cold"
+    
+cities = {'New York':32,'Boston':75,'Los Angeles':100,'Chicago':50}
+desc_cities = {key: check_temp(value) for (key,value) in cities.items()}
+print(desc_cities)'''
+#------------------------------------------------------------ 5:19 H or 319 M
+
+# zip(*iterables) = aggregate elements from two or more iterables(list, tuples, sets, etc.)
+#                   creates a zip object with paired elements stored in tuples for each element.
