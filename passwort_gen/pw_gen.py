@@ -24,11 +24,12 @@ import string
 string.ascii_letters
 
 class user_pref:
-      upref = str(input("Enter a password you like to strenghen: ")).lower()
+      upref = str(input("Enter a password you like to strenghen: "))
 # count lenght of user string and use lenght to create a random number int from 1 to x(how long the userstring is)
 # manipulate string couple times by using random number inbetween user-string to add characters and therefore create a "better password"
       
 # string slice into different parts, modify and add back together??
+'''
 class strmnpl(user_pref): #string manipulation
     #uprefrnd = random.choice(string.ascii_letters)
     #print(uprefrnd)
@@ -37,7 +38,44 @@ class strmnpl(user_pref): #string manipulation
         y = random.randint(1,15)
         print(x, end="")
         x += x
-    print(x + user_pref.upref)
+    print(x + user_pref.upref)'''
 
 def again(): # play again
-    pass
+    x = input("Again (Y/N)?: ").upper()
+    if x == 'Y':
+        return None
+    else:
+        quit()
+
+print("")
+#indexes upref steps thru with random number from 1-3.
+def spc(**we):
+     rslt =  ""
+     for r in we.values():
+         rslt += r
+         print(rslt)
+     return rslt
+    
+s = spc
+p = True
+
+while p == True:
+    s(k='------------')
+    for i in range(1, 4):
+        zin = random.choice(string.ascii_letters)
+        op = random.randint(1, 3)
+        slc = user_pref.upref[::op]
+        li = [zin, slc]
+        pri = random.choice(li)
+        if int(len(user_pref.upref)) <= 3 or user_pref.upref[1] == user_pref.upref[2:3]: # <----------
+            for i in range(1, 4):
+                x = random.choice(string.ascii_letters)
+                #y = random.randint(1,15)
+                print(x,end="")
+                x += x
+        print(pri, end="")
+    s(k="")
+    s(k='------------')
+    again()
+# zin to add string with the step used in slc
+
