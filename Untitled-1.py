@@ -137,3 +137,15 @@ elif measure.lower() == ('k'):
 else:
     print("invalid") '''
 
+#------------------------------------------------------------------
+import random
+import string
+string.ascii_letters
+
+kek = ''
+rslte = 0
+
+for i in range(rslte, 10):
+    kek = random.choice(string.ascii_letters)
+    print(kek,end="")
+    rslte += 1

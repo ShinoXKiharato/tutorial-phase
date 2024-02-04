@@ -48,7 +48,7 @@ def again(): # play again
         quit()
 
 print("")
-#indexes upref steps thru with random number from 1-3.
+
 def spc(**we):
      rslt =  ""
      for r in we.values():
@@ -58,24 +58,26 @@ def spc(**we):
     
 s = spc
 p = True
-
+rslt = 0
+# if int(len(rslt)) != 10:
 while p == True:
     s(k='------------')
-    for i in range(1, 4):
+    for i in range(1, 10):
+
         zin = random.choice(string.ascii_letters)
         op = random.randint(1, 3)
         slc = user_pref.upref[::op]
-        li = [zin, slc]
+
+        li = [zin, zin, zin, slc]
         pri = random.choice(li)
-        if int(len(user_pref.upref)) <= 3 or user_pref.upref[1] == user_pref.upref[2:3]: # <----------
-            for i in range(1, 4):
-                x = random.choice(string.ascii_letters)
-                #y = random.randint(1,15)
-                print(x,end="")
-                x += x
-        print(pri, end="")
+        #rslt = len(pri+zin)
+        print(pri,end="")
+    if int(len(user_pref.upref)) <= 3 or user_pref.upref[1] == user_pref.upref[2:3]: # <----------
+        for i in range(1, 4):
+            x = random.choice(string.ascii_letters)
+            #y = random.randint(1,15)
+            print(x,end="")
+            x += x
     s(k="")
     s(k='------------')
     again()
-# zin to add string with the step used in slc
-
