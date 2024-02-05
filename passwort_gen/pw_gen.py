@@ -22,19 +22,19 @@ import random
 import string
 
 string.ascii_letters
-
+'''
 class user_pref:
       upref = str(input("Enter a password you like to strenghen: ")) # input
-
+'''
 # count lenght of user string and use lenght to create a random number int from 1 to x(how long the userstring is)
 # manipulate string couple times by using random number inbetween user-string to add characters and therefore create a "better password"
       
 # string slice into different parts, modify and add back together??
       
 def again(): # play again
-    x = input("Again (Y/N)?: ").upper()
-    if x == 'Y':
-        return None
+    xe = input("Again (Y/N)?: ").upper()
+    if xe == 'Y':
+        return s(e="")
     else:
         quit()
 
@@ -48,31 +48,28 @@ def spc(**we): # s
      return rslt
     
 s = spc
-g = True
 p = True
-rslt = 0
-bepe = ""
 # if int(len(rslt)) != 10:
 
 while p == True:
+    bepe = ""
+    inp = input("Enter a password you like to strenghen: ")
+    s(k='------------')
 
-    if len(user_pref.upref) <= 3 or user_pref.upref[1] == user_pref.upref[2:3]: # <----------
-        s(k='------------')
-        while len(bepe) < 9:
+    if len(inp) <= 3 or inp[1] == inp[2:3]: # <----------
+        while len(bepe) < 10:
             x = random.choice(string.ascii_letters)
             print(x,end="")
 
             bepe += x
-        again()
 
 
-    if len(user_pref.upref) >= 1:
-        s(k='------------')
+    if len(inp) >= 1:
         while len(bepe) < 9:
                 
             zin = random.choice(string.ascii_letters)
             op = random.randint(1, 3)
-            slc = user_pref.upref[::op]
+            slc = inp[::op]
 
             li = [zin, zin, zin, slc, slc]
             pri = random.choice(li)
@@ -80,25 +77,8 @@ while p == True:
             
             print(str(bep), end="")
             bepe += bep
-        s(k="")
-        s(k='------------')
-        again()
-
-
-'''
-    if len(user_pref.upref) >= 1:
-        for i in range(1, 5):
-            
-            zin = random.choice(string.ascii_letters)
-            op = random.randint(1, 3)
-            slc = user_pref.upref[::op]
-
-            li = [zin, zin, zin, slc, slc]
-            pri = random.choice(li)
-            bep = str(pri + zin)
-            #rslt = len(pri+zin)
-
-            rslt = len(bep)
-            print(str(bep), end="")
-    elif (rslt == 10):
-            break'''
+    s(k="")
+    print(len(bepe), "Characters")
+    s(k='------------')
+    again()
+    
