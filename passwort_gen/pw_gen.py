@@ -60,6 +60,7 @@ s = spc
 p = True
 rslt = 0
 # if int(len(rslt)) != 10:
+'''
 while p == True:
     s(k='------------')
     for i in range(1, 10):
@@ -78,6 +79,31 @@ while p == True:
             #y = random.randint(1,15)
             print(x,end="")
             x += x
+    s(k="")
+    s(k='------------')
+    again()
+'''
+while p == True:
+    s(k='------------')
+    for i in range(rslt <= 10, rslt == 10):
+
+        zin = random.choice(string.ascii_letters)
+        op = random.randint(1, 3)
+        slc = user_pref.upref[::op]
+
+        li = [zin, zin, zin, slc, slc]
+        pri = random.choice(li)
+        #bep = str(pri + zin)
+        #rslt = len(pri+zin)
+
+        if int(len(user_pref.upref)) <= 3 or user_pref.upref[1] == user_pref.upref[2:3]: # <----------
+            for i in range(1, 4):
+                x = random.choice(string.ascii_letters)
+                #y = random.randint(1,15)
+                print(x,end="")
+                rslt = len(x)
+        rslt = len(pri or x)
+        print(i)
     s(k="")
     s(k='------------')
     again()
