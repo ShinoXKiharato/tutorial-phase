@@ -31,54 +31,64 @@ class user_pref:
       
 # string slice into different parts, modify and add back together??
       
+
+
+def space(**we): # s
+     print_rslt =  ""
+     for r in we.values():
+         print_rslt += r
+         print(print_rslt)
+     return print_rslt
+
+display=("")
+
 def again(): # play again
-    xe = input("Again (Y/N)?: ").upper()
-    if xe == 'Y':
-        return s(e="")
+    play_again = input("Again (Y/N)?: ").upper()
+    if play_again == 'Y':
+        return display(e="")
     else:
         quit()
 
-print("")
-
-def spc(**we): # s
-     rslt =  ""
-     for r in we.values():
-         rslt += r
-         print(rslt)
-     return rslt
-    
-s = spc
+display = space
 p = True
-# if int(len(rslt)) != 10:
 
 while p == True:
-    bepe = ""
-    inp = input("Enter a password you like to strenghen: ")
-    s(k='------------')
-
-    if len(inp) <= 3 or inp[1] == inp[2:3]: # <----------
-        while len(bepe) < 10:
+    gen_pw = ""
+    pw_lenght = int(input("Set new passwort lenght: "))
+    u_input = input("Enter a password you like to strenghen: ")
+    display(k='------------')
+    ''' optional, modify later
+    if len(u_input) <= 3 or u_input[1] == u_input[2:3]: # <----------
+        while len(gen_pw) < pw_lenght:
             x = random.choice(string.ascii_letters)
             print(x,end="")
 
-            bepe += x
+            gen_pw += x'''
 
 
-    if len(inp) >= 1:
-        while len(bepe) < 9:
+    if len(u_input) >= 1:
+        while len(gen_pw) < pw_lenght:
                 
-            zin = random.choice(string.ascii_letters)
-            op = random.randint(1, 3)
-            slc = inp[::op]
+            rng_letter = random.choice(string.ascii_letters) # creates random letter.
+            rng_int_input = random.randint(1, 3 or 4) # creates random integer between 1-3
+            rng_char_input = u_input[::rng_int_input] # chooses every character from the user input with the step of "rng_int_input" which is between 1-3
 
-            li = [zin, zin, zin, slc, slc]
-            pri = random.choice(li)
-            bep = str(pri + zin)
+            li_st = [rng_letter, rng_char_input, rng_letter, rng_letter, rng_char_input] # creates 60% chance for rng_letter and 40 for rng_char_input 
+            rng_list_letter = random.choice(li_st) # chooses with "random.choice" one of the following in that li_st
+            result_str = "" + rng_list_letter
+
+            if rng_list_letter == result_str[-1 or -2::2 and 3 and 4]: # maybe add according to input instead of set integers? <-------------
+                result_str = str(rng_letter)
+            else:
+                result_str = str(rng_list_letter) 
             
-            print(str(bep), end="")
-            bepe += bep
-    s(k="")
-    print(len(bepe), "Characters")
-    s(k='------------')
+            print(str(result_str), end="")
+
+            gen_pw += result_str
+
+    display(k="")
+    print(len(gen_pw), "Characters")
+    display(k='------------')
     again()
     
+# Add check where User input will not be visible in password, no duplicates!
