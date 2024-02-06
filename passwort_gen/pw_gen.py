@@ -1,18 +1,5 @@
 # Build a program that generates strong and secure passwords based on user-provided preferences.
 
-'''info
->>>def random_char(y):
-       return ''.join(random.choice(string.ascii_letters) for x in range(y))
-
->>>print (random_char(5))
->>>fxkea
-
-or
-
-numpy.random.choice to give a unique set if you add replace=False, 
-
-like so: numpy.random.choice(string.ascii_lowercase, size=5, replace=False)
-'''
 # imp note join()
 # imp note lstrip() to remove smth from string
 # imp note replace() to replace a substring
@@ -21,19 +8,10 @@ like so: numpy.random.choice(string.ascii_lowercase, size=5, replace=False)
 import random
 import string
 
-string.ascii_letters
-'''
-class user_pref:
-      upref = str(input("Enter a password you like to strenghen: ")) # input
-'''
-# count lenght of user string and use lenght to create a random number int from 1 to x(how long the userstring is)
-# manipulate string couple times by using random number inbetween user-string to add characters and therefore create a "better password"
-      
-# string slice into different parts, modify and add back together??
-      
+string.ascii_letters   
 
 
-def space(**we): # s
+def space(**we):
      print_rslt =  ""
      for r in we.values():
          print_rslt += r
@@ -68,16 +46,17 @@ while p == True:
 
     if len(u_input) >= 1:
         while len(gen_pw) < pw_lenght:
-                
-            rng_letter = random.choice(string.ascii_letters) # creates random letter.
-            rng_int_input = random.randint(1, 3 or 4) # creates random integer between 1-3
-            rng_char_input = u_input[::rng_int_input] # chooses every character from the user input with the step of "rng_int_input" which is between 1-3
 
-            li_st = [rng_letter, rng_char_input, rng_letter, rng_letter, rng_char_input] # creates 60% chance for rng_letter and 40 for rng_char_input 
-            rng_list_letter = random.choice(li_st) # chooses with "random.choice" one of the following in that li_st
+            rng_letter = random.choice(string.ascii_letters) 
+            rng_int_input = random.randint(1, 3 or 4)
+            rng_int_input2 = lambda rng_int_input:random.randint(1, 6) if len(u_input) >= 5 else None
+            rng_char_input = u_input[::rng_int_input or rng_int_input2]
+
+            li_st = [rng_letter, rng_char_input, rng_letter, rng_letter, rng_char_input]
+            rng_list_letter = random.choice(li_st)
             result_str = "" + rng_list_letter
 
-            if rng_list_letter == result_str[-1 or -2::2 and 3 and 4]: # maybe add according to input instead of set integers? <-------------
+            if rng_list_letter == result_str[-1 or -2::2 and 3 and 4]: 
                 result_str = str(rng_letter)
             else:
                 result_str = str(rng_list_letter) 
@@ -90,5 +69,3 @@ while p == True:
     print(len(gen_pw), "Characters")
     display(k='------------')
     again()
-    
-# Add check where User input will not be visible in password, no duplicates!
