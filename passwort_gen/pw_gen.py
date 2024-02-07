@@ -34,7 +34,9 @@ while p == True:
     gen_pw = ""
     pw_lenght = int(input("Set new passwort lenght: "))
     u_input = input("Enter a password you like to strenghen: ")
+    len_u_input = len(u_input)
     display(k='------------')
+
     ''' optional, modify later
     if len(u_input) <= 3 or u_input[1] == u_input[2:3]: # <----------
         while len(gen_pw) < pw_lenght:
@@ -49,17 +51,23 @@ while p == True:
 
             rng_letter = random.choice(string.ascii_letters) 
             rng_int_input = random.randint(1, 3 or 4)
-            rng_int_input2 = lambda rng_int_input:random.randint(1, 6) if len(u_input) >= 5 else None
+            rng_int_input2 = lambda rng_int_input:random.randint(1, 6) if len_u_input >= 5 else False
             rng_char_input = u_input[::rng_int_input or rng_int_input2]
 
             li_st = [rng_letter, rng_char_input, rng_letter, rng_letter, rng_char_input]
             rng_list_letter = random.choice(li_st)
             result_str = "" + rng_list_letter
 
-            if rng_list_letter == result_str[-1 or -2::2 and 3 and 4]: 
+            if u_input.lower() in result_str[-len_u_input::-1].lower():
+                while rng_letter != result_str[-1:]:
+                    rng_letter = random.choice(string.ascii_letters)
+                result_str = str(rng_letter)
+                    
+            elif rng_list_letter.lower() in result_str[-3::-1].lower() or rng_list_letter.lower() in result_str[-2:].lower(): 
                 result_str = str(rng_letter)
             else:
                 result_str = str(rng_list_letter) 
+            
             
             print(str(result_str), end="")
 
