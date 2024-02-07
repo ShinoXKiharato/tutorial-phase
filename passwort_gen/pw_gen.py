@@ -1,18 +1,5 @@
 # Build a program that generates strong and secure passwords based on user-provided preferences.
 
-'''info
->>>def random_char(y):
-       return ''.join(random.choice(string.ascii_letters) for x in range(y))
-
->>>print (random_char(5))
->>>fxkea
-
-or
-
-numpy.random.choice to give a unique set if you add replace=False, 
-
-like so: numpy.random.choice(string.ascii_lowercase, size=5, replace=False)
-'''
 # imp note join()
 # imp note lstrip() to remove smth from string
 # imp note replace() to replace a substring
@@ -21,8 +8,9 @@ like so: numpy.random.choice(string.ascii_lowercase, size=5, replace=False)
 import random
 import string
 
-string.ascii_letters
+string.ascii_letters   
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 class user_pref:
       upref = str(input("Enter a password you like to strenghen: "))
@@ -59,53 +47,61 @@ def again(): # play again
     if play_again == 'Y':
         display("")
 >>>>>>> Stashed changes
+=======
+
+def space(**we):
+     print_rslt =  ""
+     for r in we.values():
+         print_rslt += r
+         print(print_rslt)
+     return print_rslt
+
+display=("")
+
+def again(): # play again
+    play_again = input("Again (Y/N)?: ").upper()
+    if play_again == 'Y':
+        return display(e="")
+>>>>>>> 9754e58741329573fcc36d31e44d284dec64cdf3
     else:
         quit()
 
-print("")
-
-def spc(**we):
-     rslt =  ""
-     for r in we.values():
-         rslt += r
-         print(rslt)
-     return rslt
-    
-s = spc
+display = space
 p = True
-rslt = 0
-# if int(len(rslt)) != 10:
+
 while p == True:
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     s(k='------------')
     for i in range(1, 10):
 =======
+=======
+>>>>>>> 9754e58741329573fcc36d31e44d284dec64cdf3
     gen_pw = ""
     pw_lenght = int(input("Set new passwort lenght: "))
     u_input = input("Enter a password you like to strenghen: ")
     len_u_input = len(u_input)
+<<<<<<< HEAD
 
     display('-' * 10)
 >>>>>>> Stashed changes
+=======
+    display(k='------------')
+>>>>>>> 9754e58741329573fcc36d31e44d284dec64cdf3
 
-        zin = random.choice(string.ascii_letters)
-        op = random.randint(1, 3)
-        slc = user_pref.upref[::op]
-
-        li = [zin, zin, zin, slc]
-        pri = random.choice(li)
-        #rslt = len(pri+zin)
-        print(pri,end="")
-    if int(len(user_pref.upref)) <= 3 or user_pref.upref[1] == user_pref.upref[2:3]: # <----------
-        for i in range(1, 4):
+    ''' optional, modify later
+    if len(u_input) <= 3 or u_input[1] == u_input[2:3]: # <----------
+        while len(gen_pw) < pw_lenght:
             x = random.choice(string.ascii_letters)
-            #y = random.randint(1,15)
             print(x,end="")
+<<<<<<< HEAD
 <<<<<<< Updated upstream
             x += x
     s(k="")
     s(k='------------')
 =======
+=======
+>>>>>>> 9754e58741329573fcc36d31e44d284dec64cdf3
 
             gen_pw += x'''
 
@@ -123,15 +119,35 @@ while p == True:
             result_str = "" + rng_list_letter
 
 
+<<<<<<< HEAD
             
+=======
+            if u_input[::-1].lower() in result_str[-len_u_input::-1].lower() or u_input[-3::-1].lower() in result_str[-3::-1].lower():
+                while rng_letter != result_str[-1:]:
+                    rng_letter = random.choice(string.ascii_letters)
+                    if rng_letter == result_str[-1:]:
+                        break
+                result_str = str(rng_letter)
+                    
+            elif rng_list_letter.lower() in result_str[-3::-1].lower() or rng_list_letter.lower() in result_str[-2:].lower(): 
+                result_str = str(rng_letter)
+            else:
+                result_str = str(rng_list_letter) 
+>>>>>>> 9754e58741329573fcc36d31e44d284dec64cdf3
             
             
             print(str(result_str), end="")
 
             gen_pw += result_str
 
+<<<<<<< HEAD
     display('')
     display([len(gen_pw), "Characters"])
     display('-'*10)
 >>>>>>> Stashed changes
+=======
+    display(k="")
+    print(len(gen_pw), "Characters")
+    display(k='------------')
+>>>>>>> 9754e58741329573fcc36d31e44d284dec64cdf3
     again()

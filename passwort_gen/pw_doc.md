@@ -15,6 +15,7 @@ Correleated to the Python programm PW_Gen.py
 - [ ] (Optional) Add numbers and more to the generator.
 
 ---
+<<<<<<< HEAD
 ## Code
 
 First Attempt for no duplicates.
@@ -32,3 +33,6 @@ if u_input[::-1].lower() in result_str[-len_u_input::-1].lower() or u_input[-3::
             else:
                 result_str = str(rng_list_letter) 
 ```
+=======
+## Code
+>>>>>>> 9754e58741329573fcc36d31e44d284dec64cdf3
