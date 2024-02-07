@@ -4,9 +4,7 @@ Correleated to the Python programm PW_Gen.py
 
 - [x] Manipulate string couple times by using random integers inbetween user-string to add characters and therefore create a "better password"
 
-- [ ] Add check where User input will not be visible in password, no duplicates!
-
-- [ ] (Optional) Maybe add according to input instead of set integers in line 58. 'if list == result'
+- [x] Add check where User input will not be visible in password, no duplicates!
 
 - [ ] Make Each password look individual af.
 
