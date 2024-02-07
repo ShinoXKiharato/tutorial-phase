@@ -58,9 +58,12 @@ while p == True:
             rng_list_letter = random.choice(li_st)
             result_str = "" + rng_list_letter
 
-            if u_input.lower() in result_str[-len_u_input::-1].lower():
+
+            if u_input[::-1].lower() in result_str[-len_u_input::-1].lower() or u_input[-3::-1].lower() in result_str[-3::-1].lower():
                 while rng_letter != result_str[-1:]:
                     rng_letter = random.choice(string.ascii_letters)
+                    if rng_letter == result_str[-1:]:
+                        break
                 result_str = str(rng_letter)
                     
             elif rng_list_letter.lower() in result_str[-3::-1].lower() or rng_list_letter.lower() in result_str[-2:].lower(): 
