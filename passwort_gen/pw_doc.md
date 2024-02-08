@@ -10,7 +10,10 @@ Correleated to the Python programm PW_Gen.py
 
 - [x] (Optional) Add numbers and punctuation to the generator.
 
-- [ ] Add Error handling
+- [x] Add Error handling
+
+- [ ] Add percentage chance based on lenght_input
+    - [x] Added percentage chance.
 
 ---
 ## Code
