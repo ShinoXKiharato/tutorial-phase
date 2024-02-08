@@ -87,13 +87,3 @@ while p == True:
     display([len(generated_password), " Characters"])
     display('-'*10)
     again()
-
-    '''
-    password_lenght = (input("Set new passwort lenght: "))
-        if password_lenght != int(password_lenght):
-            raise Exception("")
-        while password_lenght != int(password_lenght):
-            password_lenght = (input("Set new passwort lenght: "))
-            if password_lenght == int(password_lenght):
-                break
-            '''
