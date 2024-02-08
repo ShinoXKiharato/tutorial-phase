@@ -6,9 +6,11 @@ Correleated to the Python programm PW_Gen.py
 
 - [x] Add check where User input will not be visible in password, no duplicates!
 
-- [ ] Make Each password look individual af.
+- [x] Make Each password look individual af.
 
-- [ ] (Optional) Add numbers and more to the generator.
+- [x] (Optional) Add numbers and punctuation to the generator.
+
+- [ ] Add Error handling
 
 ---
 ## Code

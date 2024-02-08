@@ -34,12 +34,29 @@ while p == True:
     char_counts = {}
 
     while len(generated_password) < password_lenght:
+        # change so next_char will only have punctuation if Y same for digits. Probably outside of line 38? maybe if statement.
 
-        next_char = random.choice(
+        if user_input_punc.upper() == 'Y' and user_input_num.upper() == 'Y':
+            next_char = random.choice(
             [random.choice(string.ascii_letters) if random.choice(string.ascii_letters) != generated_password[-1:] else random.choice(string.ascii_letters)
              , user_input[::random.randint(1, (6 or 8)) if len_u_input >= 5 else random.randint(1, (2 or 3))]
-             , random.choice(string.punctuation) if user_input_punc.upper() == 'Y' else None, random.choice(string.digits) if user_input_num.upper() == 'Y' else None])
-        # change so next_char will only have punctuation if Y same for digits. Probably outside of line 38? maybe if statement.
+             , random.choice(string.punctuation), random.choice(string.digits)])
+        elif user_input_punc.upper() == 'Y':
+            next_char = random.choice(
+            [random.choice(string.ascii_letters) if random.choice(string.ascii_letters) != generated_password[-1:] else random.choice(string.ascii_letters)
+             , user_input[::random.randint(1, (6 or 8)) if len_u_input >= 5 else random.randint(1, (2 or 3))]
+             , random.choice(string.punctuation)])
+        elif user_input_num.upper() == 'Y':
+            next_char = random.choice(
+            [random.choice(string.ascii_letters) if random.choice(string.ascii_letters) != generated_password[-1:] else random.choice(string.ascii_letters)
+             , user_input[::random.randint(1, (6 or 8)) if len_u_input >= 5 else random.randint(1, (2 or 3))]
+             , random.choice(string.digits)])
+        else:
+            next_char = random.choice(
+            [random.choice(string.ascii_letters) if random.choice(string.ascii_letters) != generated_password[-1:] else random.choice(string.ascii_letters)
+             , user_input[::random.randint(1, (6 or 8)) if len_u_input >= 5 else random.randint(1, (2 or 3))]])
+            
+
 
         if (
             (user_input in generated_password + next_char and len(user_input) > 2)
