@@ -51,25 +51,25 @@ while p == True:
              , user_input[::random.randint(1, (6 or 8)) if len_u_input >= 5 else random.randint(1, (2 or 3))]
              , random.choice(string.punctuation)
              , random.choice(string.digits)]
-            weights = [0.4, 0.5, 0.25, 0.25]
+            weights = [0.4 if password_lenght >= 12 else 0.5, 0.5 if password_lenght >= 12 else 0.4, 0.25 if password_lenght >= 12 else 0.55, 0.25 if password_lenght >= 12 else 0.55]
             next_char = random.choices(choices, weights=weights)[0]
 
         elif user_input_punc.upper() == 'Y':
             choices = [random.choice(string.ascii_letters) if random.choice(string.ascii_letters) != generated_password[-1:] else random.choice(string.ascii_letters)
              , user_input[::random.randint(1, (6 or 8)) if len_u_input >= 5 else random.randint(1, (2 or 3))]
              , random.choice(string.punctuation)]
-            weights = [0.45, 0.5, 0.3]
+            weights = [0.45 if password_lenght >= 12 else 0.5, 0.5 if password_lenght >= 12 else 0.435, 0.3 if password_lenght >= 12 else 0.55]
             next_char = random.choices(choices, weights=weights)[0]
         elif user_input_num.upper() == 'Y':
             choices = [random.choice(string.ascii_letters) if random.choice(string.ascii_letters) != generated_password[-1:] else random.choice(string.ascii_letters)
              , user_input[::random.randint(1, (6 or 8)) if len_u_input >= 5 else random.randint(1, (2 or 3))]
              , random.choice(string.digits)]
-            weights = [0.45, 0.5, 0.3]
+            weights = [0.45 if password_lenght >= 12 else 0.58, 0.5 if password_lenght >= 12 else 0.45, 0.3 if password_lenght >= 12 else 0.525]
             next_char = random.choices(choices, weights=weights)[0]
         else:
             choices = [random.choice(string.ascii_letters) if random.choice(string.ascii_letters) != generated_password[-1:] else random.choice(string.ascii_letters)
              , user_input[::random.randint(1, (6 or 8)) if len_u_input >= 5 else random.randint(1, (2 or 3))]]
-            weights = [0.65, 0.5]
+            weights = [0.65 if password_lenght >= 8 else 0.55, 0.5 if password_lenght >= 8 else 0.6]
             next_char = random.choices(choices, weights=weights)[0]
 
         if (

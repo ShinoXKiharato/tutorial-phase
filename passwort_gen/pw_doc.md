@@ -12,7 +12,7 @@ Correleated to the Python programm PW_Gen.py
 
 - [x] Add Error handling
 
-- [ ] Add percentage chance based on lenght_input
+- [x] Add percentage chance based on lenght_input (Variation)
     - [x] Added percentage chance.
 
 ---
