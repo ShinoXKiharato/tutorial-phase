@@ -36,7 +36,6 @@ while p == True:
     user_input = input("Enter a word you would like to use: ")
     user_input_punc = input("Would you like to add punctuations? (Y/N): ")
     user_input_num = input("Would you like to add numbers? (Y/N): ")
-
     len_u_input = len(user_input)
 
     display('-' * 10)
@@ -81,6 +80,7 @@ while p == True:
 
         generated_password += next_char
         print(next_char, end="")
+
 
     display('')
     display([len(generated_password), " Characters"])

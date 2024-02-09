@@ -211,4 +211,3 @@ It also ensures the `user_input` length is greater than 2, allowing up to 2 char
 > * Calls `display('-'*10)` to display - 10 times
 > * Calls `again()` function
 > ---
-
