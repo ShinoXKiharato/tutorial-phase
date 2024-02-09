@@ -1,5 +1,7 @@
-# Password Generator Documentation
-Correleated to the Python programm [PW_Gen.py]
+# Password Generator 
+
+> [!NOTE]
+> Correleated to the Python programm [PW_Gen.py].
 
 [PW_Gen.py]: https://github.com/Yu-0n/tutorial-phase/blob/main/passwort_gen/pw_gen.py
 
@@ -26,9 +28,9 @@ Correleated to the Python programm [PW_Gen.py]
 
 <details>
   <summary>Click me!</summary>
-  <kbd>[Github](https://github.com/Yu-0n/tutorial-phase/blob/main/passwort_gen/pw_gen.py)</kbd>
 
- [Github](https://github.com/Yu-0n/tutorial-phase/blob/main/passwort_gen/pw_gen.py)
+-  <kbd>[Github](https://github.com/Yu-0n/tutorial-phase/blob/main/passwort_gen/pw_gen.py)</kbd>
+
 ```python
 import random
 import string
@@ -122,7 +124,7 @@ while p == True:
 ```
 </details>
 
-# Breakdown
+## Breakdown
 
 ## Prep-Work
 >* Import Libaries `string` and `random`
@@ -221,3 +223,4 @@ It also ensures the `user_input` length is greater than 2, allowing up to 2 char
 > * Calls `again()` function
 > ---
 
+[Back to the top :arrow_up:](#top)
