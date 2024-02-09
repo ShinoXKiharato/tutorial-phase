@@ -44,7 +44,6 @@ while p == True:
     char_counts = {}
 
     while len(generated_password) < password_lenght:    
-        # change so next_char will only have punctuation if Y same for digits. Probably outside of line 38? maybe if statement.
 
         if user_input_punc.upper() == 'Y' and user_input_num.upper() == 'Y':
             choices = [random.choice(string.ascii_letters) if random.choice(string.ascii_letters) != generated_password[-1:] else random.choice(string.ascii_letters)
