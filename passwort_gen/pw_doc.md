@@ -1,11 +1,11 @@
-# Password Generator 
+# Password Generator v1
 
 > [!NOTE]
 > Correleated to the Python programm [PW_Gen.py].
 
 [PW_Gen.py]: https://github.com/Yu-0n/tutorial-phase/blob/main/passwort_gen/pw_gen.py
 
-## Checklist
+## Checklist :white_check_mark:
 
 - [x] Manipulate string couple times by using random integers inbetween user-string to add characters and therefore create a "better password"
 
@@ -20,11 +20,11 @@
 - [x] Add percentage chance based on lenght_input (Variation)
     - [x] Added percentage chance.x
 
-- I have no idea what to add.
+ I have no idea what else to add.
 
 ---
 
-## Raw Code
+## Raw Code :floppy_disk:
 
 <details>
   <summary>Click me!</summary>
@@ -124,7 +124,7 @@ while p == True:
 ```
 </details>
 
-## Breakdown
+## Breakdown :mag:
 
 ## Prep-Work
 >* Import Libaries `string` and `random`
@@ -133,16 +133,16 @@ while p == True:
 >    * `again()` call to be asked to re-iterate thru the loop again or quit
 >    * Set address for `display` to `space()` function.
 
-## Main Code
+## Main Code :red_circle:
 
 ><sub>Top to bottom</sub>
-> ## Outer Loop
+> ## Outer Loop :loop:
 > * Set `p` equal to `True`
 > * Create infinite `while` loop with `p == True`
 >> * Variable `generated_password` set to `""`
 >> * Variable `password_lenght` set to 0
 >> * Variable `valid_input` set to `False`
-> ## User Input + Var
+> ## User Input + Var :heavy_plus_sign:
 >> * `while` `valid_input` is negative (`False`)
 >>> * `Try` to ask for integer `password_lenght` if it works continue line and set `valid_input` to `True` (break loop)
 >>> * `except` condition for ValueError to ask user for a integer and re-iterate thru the loop.
@@ -156,7 +156,7 @@ while p == True:
 >> * Calls `display` (`space()`) to print 10 times `-`
 >>
 >> * Create list called `char_counts`
-> ## Random.Generator
+> ## Random.Generator :twisted_rightwards_arrows:
 >> * `while` lenght of the `generated_password` is less than `password_lenght`
 >>> I have created different variations of the same pattern, which is why i will explain only the one that contains all of them. 
 >>> * `if` input.upper() on punctuation is equal to `Y` and numbers.
@@ -188,14 +188,14 @@ while p == True:
 >>> ---
 >>> Note: Numbers vary in each `if` and `elif` statement.
 >
-> ## No Duplicates
+> ## No Duplicates :x:
 >> `if` statement to make sure that the users input itself doesn't occur in the generated password.
->>> First condition
+>>> ***First condition***
 >>> * `user_input in generated_password + next_char and len(user_input) > 2`
 >>> * This checks if the `user_input` string (the password the user wants to strengthen) appears within the already generated password (`generated_password`) combined with the potential next character (`next_char`). 
 It also ensures the `user_input` length is greater than 2, allowing up to 2 character matches.
 >>>
->>> Second condition
+>>> ***Second condition***
 >>> * `next_char.upper() in char_counts and char_counts[next_char.upper()] >= 5:`
 >>> * This checks if the uppercase version of the next character (`next_char.upper()`) already exists in the `char_counts` dictionary.
 >>> * It also checks if the count for that character in the dictionary is greater than or equal to 5.
@@ -211,7 +211,8 @@ It also ensures the `user_input` length is greater than 2, allowing up to 2 char
 >>>
 >>>This keeps track of how many times each character has appeared in the generated password so far.
 >>---
->> Lastly `generated_password `+=` next_char` will append `next_char` to the `generated_password` string.
+>> :small_red_triangle_down: :small_red_triangle_down: :small_red_triangle_down:
+>> **Lastly** `generated_password `+=` next_char` will append `next_char` to the `generated_password` string.
 >> 
 >> `print(next_char, end="")`
 >> * Prints the character for each iteration on the same line
