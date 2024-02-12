@@ -14,6 +14,12 @@ window.config(background="dark blue") #change backgroudn color
 
 photo = PhotoImage(file="GUI\\anime01.png")
 resized_photo = photo.subsample(6,6)
+
+giftimg = PhotoImage(file="1301.png")
+coupimg = PhotoImage(file="1302.png")
+snowimg = PhotoImage(file="1303.png")
+listImages = [giftimg, coupimg, snowimg]
+
 #------------------------------------- Icon
 '''
 icon = PhotoImage(file="icon.png")
@@ -117,6 +123,19 @@ check_button = Checkbutton(window,
                            image=resized_photo, compound="left")
 check_button.pack()'''
 #----------------------------------------------------------
+
+# radio buttons =  similar to checkbox, but you can only select one from a group.
+x = IntVar()
+food = ["pizza","hamburger","hotdog"]
+for index in range(len(food)):
+    radiobutton = Radiobutton(window,
+                            text=food[index], # adds text to radio buttons
+                            variable=x, # groups radibuttons together if they share the same variable
+                            value=index, #this assigns each radiobutton a different value
+                            padx=25, pady=10,
+                            font=("Impact", 35),
+                            image=resized_photo, compound="right")
+    radiobutton.pack(anchor=W)
 
 
 window.mainloop() #place window on computer screen, listen for events
