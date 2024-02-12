@@ -138,14 +138,8 @@ else:
     print("invalid") '''
 
 #------------------------------------------------------------------
-import random
-import string
-string.ascii_letters
+'''
+text = "Woop"
 
-kek = ''
-rslte = 0
-
-for i in range(rslte, 10):
-    kek = random.choice(string.ascii_letters)
-    print(kek,end="")
-    rslte += 1
+print(f'{text:_>20}')'''
+# result : ________________Woop
