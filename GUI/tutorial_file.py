@@ -3,7 +3,7 @@ from msilib.schema import Icon
 from stat import filemode
 from tabnanny import verbose
 from tkinter import *
-from turtle import back, down, right
+from turtle import back, down, right, width
 
 #from networkx import compose_all
 
@@ -499,6 +499,42 @@ taskLabel = Label(window, textvariable=text).pack()
 button = Button(window,text="download", command=start).pack()
 '''
 # -------------------------------------- 2H 45M
+
+# canvas = widget that is used to draw graphs, plots, images in a window
+'''
+points = [250,0,500,500,0,500,]
+canvas = Canvas(window, height=500, width=500)
+canvas.create_line(0,0,500,500, fill="blue",width=10)
+canvas.create_line(500,0,0,500, fill="red",width=10) # starting x/y ending x/y
+canvas.create_rectangle(50,50,250,250, fill="purple")
+#canvas.create_polygon(250,0,500,500,0,500, fill="yellow",outline="black", width=5) #x, y, x, y, x, y,
+canvas.create_polygon(points, fill="yellow",outline="black", width=5)
+canvas.create_arc(0,0,500,500, fill="green", style=CHORD#draws a line or do ARC for no line
+                  , start=180# sets degrees
+                  , extent=100 # how far does it extend
+                  )
+#pokeball
+canvas.create_arc(0,0,500,500,fill="red",extent=180, width=10)
+canvas.create_arc(0,0,500,500,fill="white",extent=180, start=180,width=10)
+canvas.create_oval(190,190,310,310, fill="white",width=10)
+canvas.pack()'''
+# -------------------------------------- 2H 56M
+
+# key events
+'''
+def doSomething(event):
+    #print("It worked"+event.keysym) #displays keysymbol
+    label.config(text=event.keysym)
+window.bind("<Key>", doSomething) #do <Key> for all keys
+
+label = Label(window, font=("Helvetica", 100))
+label.pack()'''
+# -------------------------------------- 3H 1M
+
+# mouse events
+
+
+
 
 window.mainloop() #place window on computer screen, listen for events
 
