@@ -30,3 +30,8 @@ checkbox = customtkinter.CTkCheckBox(master=frame, text="Remember Me")
 checkbox.pack(pady=12, padx=10)
 
 root.mainloop()
+
+window = customtkinter.CTk()
+
+
+window.mainloop()
