@@ -4,8 +4,7 @@ from stat import filemode
 from tabnanny import verbose
 from tkinter import *
 from turtle import back, down, right, width
-
-#from networkx import compose_all
+from time import *
 
 # Widgets = GUI Elements: buttons, textboxes, labels, images etc.
 # Windows = serves as a container to hold or contain those widgets
@@ -13,7 +12,7 @@ from turtle import back, down, right, width
 window = Tk() # instantiate an instance of a window
 window.geometry("640x640") # size of window
 window.title("Yua's first GUI") #window title
-window.config(background="dark blue") #change backgroudn color
+window.config(background="light blue") #change backgroudn color
 
 
 
@@ -532,9 +531,193 @@ label.pack()'''
 # -------------------------------------- 3H 1M
 
 # mouse events
+'''
+def doSomething(event):
+    print("Mouse coordinates"+str(event.x)+str(event.y))#event.x gives me the x coordinate, same for y
+
+window.bind('<Button-1>',doSomething) #event, function / left mouse button
+window.bind('<Button-2>',doSomething) if pressed middle mouse button
+window.bind('<Button-3>', doSomething) right click
+window.bind('<ButtonRelease>', doSomething) #activates when mouse button released
+window.bind('<Enter>', doSomething) # enter the window
+window.bind('<Leave>', doSomething) # leave the window
+window.bind('<Motion>', doSomething) # Where the mouse moved
+'''
+# -------------------------------------- 3H 6M
+
+# drag & drop widgets
+
+'''
+def drag_start(event):
+    widget = event.widget
+    widget.startX = event.x
+    widget.startY = event.y
+
+def drag_motion(event):
+    widget = event.widget #makes it compatible with every widget
+    x = widget.winfo_x() - widget.startX + event.x # x = top left corner - place where we click within label + coord where we drag
+    y = widget.winfo_y() - widget.startY + event.y # Sets new coordinates
+
+    widget.place(x=x, y=y)
+    
+
+label = Label(window,bg="Red",width=10,height=5)
+label.place(x=0,y=0)
+
+label2 = Label(window,bg="Blue",width=10,height=5)
+label2.place(x=100,y=50)
+
+label.bind("<Button-1>",drag_start)#(event, function)
+label.bind("<B1-Motion>",drag_motion)
+
+label2.bind("<Button-1>",drag_start)#(event, function)
+label2.bind("<B1-Motion>",drag_motion)'''
+# -------------------------------------- 3H 14M
+
+# move images
+'''
+def move_up(event):
+    label.place(x=label.winfo_x(), y=label.winfo_y()-10) 
+def move_down(event):
+    label.place(x=label.winfo_x(), y=label.winfo_y()+10)
+def move_right(event):
+    label.place(x=label.winfo_x()+10, y=label.winfo_y())
+def move_left(event):
+    label.place(x=label.winfo_x()-10, y=label.winfo_y())
+
+window.bind("<w>", move_up)
+window.bind("<a>", move_left)
+window.bind("<s>", move_down)
+window.bind("<d>", move_right)
+#arrow keys
+window.bind("<Up>", move_up)
+window.bind("<Left>", move_left)
+window.bind("<Down>", move_down)
+window.bind("<Right>", move_right)
+
+resized_photo = resized_photo.subsample(4,4)
+label = Label(window, image=resized_photo)
+label.place(x=0,y=0)'''
+
+#move images on canvas
+'''
+def move_up(event):
+    canvas.move(myimage,0,-10) # 3 arguments (var, x,y)
+def move_down(event):
+    canvas.move(myimage,0,+10)
+def move_right(event):
+    canvas.move(myimage,+10,0)
+def move_left(event):
+    canvas.move(myimage,-10,0)
+
+window.bind("<w>", move_up)
+window.bind("<a>", move_left)
+window.bind("<s>", move_down)
+window.bind("<d>", move_right)
+#arrow keys
+window.bind("<Up>", move_up)
+window.bind("<Left>", move_left)
+window.bind("<Down>", move_down)
+window.bind("<Right>", move_right)
+
+canvas = Canvas(window, width=500, height=500)
+canvas.pack()
+
+resized_photo = resized_photo.subsample(4,4)
+myimage = canvas.create_image(0,0, image=resized_photo, anchor=NW)
+'''
+# -------------------------------------- 3H 25M
+
+# 2D Animations
+
+#imported time
+'''
+WIDTH = 500 #constants
+HEIGHT = 500
+#velocities
+xVelocity = 2
+yVelocity = 3
+canvas = Canvas(window, width=WIDTH, height=HEIGHT)
+canvas.pack()
+
+resized_photo = resized_photo.subsample(4,4)
+myimage = canvas.create_image(0,0, image=resized_photo, anchor=NW)
 
 
+background = canvas.create_image(0,0,image=snowimg,anchor=NW) 
+
+image_width = resized_photo.width()
+image_height = resized_photo.height()
+
+while True:
+    coordinates = canvas.coords(myimage) #gets the coordinates of myimage
+    print(coordinates)
+    if(coordinates[0]>= (WIDTH-image_width) or coordinates[0]<0): #x value
+        xVelocity = -xVelocity
+    if(coordinates[1]>= (HEIGHT-image_height) or coordinates[1]<0): #y value
+        yVelocity = -yVelocity
+    canvas.move(myimage, xVelocity,yVelocity)# 3 arguments, what, x, y # moves it 
+    window.update()
+    time.sleep(0.03)'''
+
+# -------------------------------------- 3H 39M
+
+# Animate multiple objects
+
+'''
+from classforTut import *
+WIDTH = 500
+HEIGHT = 500
+
+canvas = Canvas(window,width=WIDTH,height=HEIGHT)
+canvas.pack()
+
+volley_ball = Ball(canvas, 0, 0, 100, 1,1, "red")
+tennis_ball = Ball(canvas, 0, 0, 40, 3,4, "blue")
+bigger_ball = Ball(canvas, 0, 0, 150, 0.5,0.7, "white")
+deez_Balls = Ball(canvas, 0, 0, 85, 1.2,1.5, "black")
+
+while True:
+    volley_ball.move() #function in classforTut
+    tennis_ball.move()
+    bigger_ball.move()
+    deez_Balls.move()
+    window.update()
+    time.sleep(0.03)'''
+
+# -------------------------------------- 3H 51M
+
+# Clock program
+# https://docs.python.org/3/library/time.html#time.strftime
+'''
+def update():
+    time_string = strftime("%I:%M:%S %p", gmtime())
+    time_label.config(text=time_string)
+
+    day_string = strftime("%A", gmtime())
+    day_label.config(text=day_string)
+
+    date_String = strftime("%B %d, %Y", gmtime())
+    date.config(text=date_String)
+
+    wind.after(1000, update) #milisceonds, function
 
 
+wind = Tk()
+
+time_label = Label(wind,font=("Arial", 50), fg="Green", bg="black")
+time_label.pack()
+
+day_label = Label(wind,font=("Arial", 25))
+day_label.pack()
+
+date = Label(wind,font=("Arial", 15))
+date.pack()
+
+update()
+
+wind.mainloop()
+'''
+# -------------------------------------------------------------------------------
+Finished
 window.mainloop() #place window on computer screen, listen for events
-
