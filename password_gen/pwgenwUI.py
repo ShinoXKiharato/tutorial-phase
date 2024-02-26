@@ -65,19 +65,11 @@ def submit():
         else:
             password_lenght = len(entrybox.get())
 
-        '''
-        while not valid_input:
-            try:
-                password_lenght = int(input("Set new passwort lenght: "))
-                valid_input = True
-            except ValueError:
-                print("Enter a Number")''' #doesn't work anymore, change into a new optional field.
-
         user_input = entrybox.get()
         len_u_input = len(user_input) 
         char_counts = {}
 
-        while len(generated_password) < (password_lenght):    
+        while len(generated_password) <= (password_lenght -1):    
 
             if (pnc.get() == 1) and (nmb.get() == 1):
                 choices = [random.choice(string.ascii_letters) if random.choice(string.ascii_letters) != generated_password[-1:] else random.choice(string.ascii_letters)
