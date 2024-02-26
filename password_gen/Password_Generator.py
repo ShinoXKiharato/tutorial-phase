@@ -5,6 +5,14 @@ import tkinter as tk
 from tkinter import *
 from PIL import Image
 import time
+# Notes
+
+# - Make sure pw_gen is exactly as long as user input lenght is.
+# - Make sure if number /or/ punct is selected, at least 1-2 is in the generated pw
+# - Add more visuals to make lenght and password more appealing and more "visual"
+# to the user
+
+
 
 string.ascii_letters   
 
@@ -15,7 +23,7 @@ ctk.set_default_color_theme("dark-blue")
 
 window = ctk.CTk()
 window.title("Password Generator V2")
-window.geometry('800x600')
+window.geometry('800x600')  
 
 #--------------
 file = "password_gen\\skeleton-meme.gif"
