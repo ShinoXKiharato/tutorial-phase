@@ -719,5 +719,5 @@ update()
 wind.mainloop()
 '''
 # -------------------------------------------------------------------------------
-Finished
+#Finished
 window.mainloop() #place window on computer screen, listen for events
