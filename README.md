@@ -4,13 +4,20 @@ Basically anything that i try and learn currently.
 
 ### Python
 
->[Password Generator with UI](https://github.com/Yu-0n/tutorial-phase/blob/main/password_gen/Password_Generator.py)
+> [Password Generator with UI](https://github.com/Yu-0n/tutorial-phase/blob/main/password_gen/Password_Generator.py)
 >
-> <img src="">
+> <img width="400px" height="240" src="https://github.com/Yu-0n/tutorial-phase/blob/main/ReadmeFiles/pwgenui1.png">
 
->[Number Guessing Game Documentation.md](https://github.com/Yu-0n/tutorial-phase/blob/main/number-guess_v1/number-gg_rvmp.md)
->[Number Guessing Game RAW](https://github.com/Yu-0n/tutorial-phase/blob/main/number-guess_v1/number-guess-game.py)
+>[DOC Number Guess Game](https://github.com/Yu-0n/tutorial-phase/blob/main/number-guess_v1/number-gg_rvmp.md)
+>
+>[RAW Number Guess Game](https://github.com/Yu-0n/tutorial-phase/blob/main/number-guess_v1/number-guess-game.py)
 
 
->[Basic Calculator Documentation.md](https://github.com/Yu-0n/tutorial-phase/blob/main/calculator/calc_doc.md)
->[Basic Calculator RAW](https://github.com/Yu-0n/tutorial-phase/blob/main/calculator/calculator.py)
+>[DOC Basic Calculator](https://github.com/Yu-0n/tutorial-phase/blob/main/calculator/calc_doc.md)
+>
+>[RAW Basic Calculator](https://github.com/Yu-0n/tutorial-phase/blob/main/calculator/calculator.py)
+
+
+> #### Base
+> [Python Course](https://github.com/Yu-0n/tutorial-phase/blob/main/12H_main/12%20hour%20course.py)
+> [Python Tkinter Course](https://github.com/Yu-0n/tutorial-phase/blob/main/GUI/tutorial_file.py)
